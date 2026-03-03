@@ -61,8 +61,9 @@ QVariant HexView::headerData(int section, Qt::Orientation orientation, int role)
   }
 
   if (orientation == Qt::Vertical) {
-    int offset_val = section * chars_per_line;    
-    return QVariant::fromValue(QString("%1").arg((long)offset_val,(int)6,(int)16,QLatin1Char('0')).toUpper()); 
+    int offset_val = section * chars_per_line;
+    //generate the starting offset for each row of the table in hex
+    return QVariant::fromValue(QString("%1").arg(offset_val,6,16,QLatin1Char('0')).toUpper()); 
   }
   return QVariant();
 }
